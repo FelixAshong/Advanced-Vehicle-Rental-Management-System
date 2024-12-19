@@ -19,12 +19,12 @@ public class Truck extends Vehicle implements Rentable {
 
     @Override
     public boolean isAvailableForRental() {
-        return isAvailable();
+        return !isAvailable();
     }
 
     @Override
     public void rent(Customer customer, int days) {
-        if (!isAvailableForRental()) {
+        if (isAvailableForRental()) {
             throw new VehicleNotAvailableException("Truck is not available for rental");
         }
         setAvailable(false);
